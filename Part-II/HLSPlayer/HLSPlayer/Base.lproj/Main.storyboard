@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wiz-Nc-VNw">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HLS Using AVFoundation-->
+        <scene sceneID="UfB-eJ-8XE">
+            <objects>
+                <viewController id="6U2-G5-5Yc" customClass="ViewController" customModule="HLSPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tbb-Eg-vq0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mac" translatesAutoresizingMaskIntoConstraints="NO" id="OMw-JC-yl0">
+                                <rect key="frame" x="20" y="323.5" width="374" height="249"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OMw-JC-yl0" secondAttribute="height" multiplier="660:439" id="7Qh-Fc-ajJ"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="U9g-p2-6Gr" appends="YES" id="0AX-84-Vab"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OMw-JC-yl0" firstAttribute="centerX" secondItem="tbb-Eg-vq0" secondAttribute="centerX" id="Axk-ng-o26"/>
+                            <constraint firstItem="iaY-8L-PS8" firstAttribute="trailing" secondItem="OMw-JC-yl0" secondAttribute="trailing" constant="20" id="P6q-GB-2Fi"/>
+                            <constraint firstItem="OMw-JC-yl0" firstAttribute="centerY" secondItem="tbb-Eg-vq0" secondAttribute="centerY" id="md8-RL-jBA"/>
+                            <constraint firstItem="OMw-JC-yl0" firstAttribute="leading" secondItem="iaY-8L-PS8" secondAttribute="leading" constant="20" id="sME-om-K6M"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iaY-8L-PS8"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HLS Using AVFoundation" id="Ucv-cX-7GL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xud-LJ-lo1" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="U9g-p2-6Gr">
+                    <connections>
+                        <action selector="playHLSStream:" destination="6U2-G5-5Yc" id="PE9-C4-zFe"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1957.9710144927537" y="112.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="InB-kM-Fo5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wiz-Nc-VNw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QO7-Eu-hvL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="22"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6U2-G5-5Yc" kind="relationship" relationship="rootViewController" id="i7q-Tm-7wa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhi-5h-efQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mac" width="660" height="439"/>
+    </resources>
+</document>
