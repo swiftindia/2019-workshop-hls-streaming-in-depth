@@ -76,6 +76,7 @@ class HLSViewController: UIViewController {
         player.replaceCurrentItem(with: playerItem) //setup audio+video playback
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
         self.observeTimeControlStatus()
+        self.registerPlayerDidReachedEndNotification()
     }
     
     //Use this init for precaching
@@ -87,6 +88,7 @@ class HLSViewController: UIViewController {
         self.playerView = playerView
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
         self.observeTimeControlStatus()
+        self.registerPlayerDidReachedEndNotification()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -95,6 +97,7 @@ class HLSViewController: UIViewController {
     
     deinit {
         self.removePlayerTimeObserver()
+        NotificationCenter.default.removeObserver(self)
         timer?.invalidate()
         observer?.invalidate()
     }
@@ -289,6 +292,10 @@ extension HLSViewController {
 //MARK:- Player Play/Pause
 extension HLSViewController {
     @IBAction func togglePlay(_ sender: UIButton) {
+        self.togglePlay()
+    }
+    
+    private func togglePlay() {
         if player.timeControlStatus == .playing {
             self.pause()
             self.playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
@@ -333,6 +340,17 @@ extension HLSViewController {
             }
         }
     }
+    
+    private func registerPlayerDidReachedEndNotification() {
+        // Register for AVPlayerItemDidPlayToEndTime i.e. the player item has played to its end time
+        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: .AVPlayerItemDidPlayToEndTime, object: playerItem)
+    }
+    
+    @objc func playerItemDidReachEnd(_ notification: Notification) {
+        player.seek(to: CMTime.zero) // seek to time zero on reaching end
+        togglePlay() //on reaching end player.timeControlStatus is playing, toggle it to pause
+    }
+    
 }
 
 //MARK: - Toggle Show/Hide ControlView
