@@ -40,15 +40,15 @@ class HLSViewController: UIViewController {
             //https://bitmovin.com/video-bitrate-streaming-hls-dash/
             switch self {
             case .low:
-                return 700 //for 240p streams
+                return 700_000 //for 240p streams
             case .medium:
-                return 2100 //for 480p streams
+                return 2100_000 //for 480p streams
             case .auto:
                 return 0 // default preferredPeakBitRate, will highest quality/bitrate supported by your connection
             case .high:
-                return 4200 //for 720p streams
+                return 4200_000 //for 720p streams
             case .hd:
-                return 28000 //for 2160p streams
+                return 28000_000 //for 2160p streams
             }
         }
     }
