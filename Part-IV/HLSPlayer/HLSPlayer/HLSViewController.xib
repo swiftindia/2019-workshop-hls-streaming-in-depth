@@ -95,7 +95,7 @@
                                 <action selector="fastForward:" destination="-1" eventType="touchUpInside" id="dvt-4M-tx1"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tm-FG-KVk">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tm-FG-KVk">
                             <rect key="frame" x="362" y="60" width="36" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="ecE-wJ-FBD"/>
@@ -104,7 +104,6 @@
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="menu"/>
-                            <variation key="heightClass=regular-widthClass=compact" hidden="NO"/>
                             <connections>
                                 <action selector="showPlaybackControlView:" destination="-1" eventType="touchUpInside" id="JXp-3Y-YkA"/>
                             </connections>
