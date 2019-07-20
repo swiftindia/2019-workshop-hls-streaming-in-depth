@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wiz-Nc-VNw">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HLS Using AVFoundation-->
+        <scene sceneID="UfB-eJ-8XE">
+            <objects>
+                <viewController id="6U2-G5-5Yc" customClass="PlayListHomeViewController" customModule="HLSPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tbb-Eg-vq0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IwV-hu-CPy">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlaylistTableViewCell" rowHeight="222" id="cxc-4v-qU8" customClass="PlaylistTableViewCell" customModule="HLSPlayer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="222"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cxc-4v-qU8" id="AEZ-Mu-RX7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nKS-bs-A6n">
+                                                    <rect key="frame" x="20" y="11" width="374" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="cqq-tN-OqW"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nKS-bs-A6n" firstAttribute="trailing" secondItem="AEZ-Mu-RX7" secondAttribute="trailingMargin" id="0Pa-IH-ouG"/>
+                                                <constraint firstItem="nKS-bs-A6n" firstAttribute="top" secondItem="AEZ-Mu-RX7" secondAttribute="topMargin" id="NgZ-H5-KIQ"/>
+                                                <constraint firstItem="nKS-bs-A6n" firstAttribute="bottom" secondItem="AEZ-Mu-RX7" secondAttribute="bottomMargin" id="TWX-EO-ItO"/>
+                                                <constraint firstItem="nKS-bs-A6n" firstAttribute="leading" secondItem="AEZ-Mu-RX7" secondAttribute="leadingMargin" id="wkb-wk-Vkf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playlistImageView" destination="nKS-bs-A6n" id="gzK-sR-jpl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6U2-G5-5Yc" id="o8F-Pl-KoN"/>
+                                    <outlet property="delegate" destination="6U2-G5-5Yc" id="KwA-Dr-qlw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="IwV-hu-CPy" secondAttribute="bottom" id="5Hf-g8-uAh"/>
+                            <constraint firstItem="IwV-hu-CPy" firstAttribute="top" secondItem="iaY-8L-PS8" secondAttribute="top" id="Imr-qy-WuG"/>
+                            <constraint firstItem="IwV-hu-CPy" firstAttribute="leading" secondItem="iaY-8L-PS8" secondAttribute="leading" id="ePB-Ud-hjQ"/>
+                            <constraint firstItem="IwV-hu-CPy" firstAttribute="trailing" secondItem="iaY-8L-PS8" secondAttribute="trailing" id="jMX-Og-uNm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iaY-8L-PS8"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HLS Using AVFoundation" id="Ucv-cX-7GL"/>
+                    <connections>
+                        <outlet property="playlistTableView" destination="IwV-hu-CPy" id="r16-CC-QkC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xud-LJ-lo1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1957.9710144927537" y="112.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="InB-kM-Fo5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wiz-Nc-VNw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QO7-Eu-hvL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="22"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6U2-G5-5Yc" kind="relationship" relationship="rootViewController" id="i7q-Tm-7wa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhi-5h-efQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
+        </scene>
+    </scenes>
+</document>
