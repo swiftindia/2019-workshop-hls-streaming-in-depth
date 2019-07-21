@@ -43,4 +43,13 @@ class HLSPlayerView: UIView {
             playerLayer.videoGravity = newValue
         }
     }
+    
+    var layerContentsScale: CGFloat {
+        get {
+            return playerLayer.contentsScale
+        }
+        set {
+            playerLayer.contentsScale = newValue
+        }
+    }
 }

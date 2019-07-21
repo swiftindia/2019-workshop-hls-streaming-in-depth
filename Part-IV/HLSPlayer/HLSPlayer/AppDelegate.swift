@@ -46,3 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+//MARK:- Utility
+extension UIApplication {
+    var keyWindowFrame: CGRect? {
+        return keyWindow?.frame
+    }
+}

@@ -71,8 +71,9 @@ class HLSViewController: UIViewController {
         playerItem = AVPlayerItem(asset: asset)
         playerItem.audioTimePitchAlgorithm = .spectral // highest audio quality
         player = AVPlayer()
-        playerView = HLSPlayerView(frame: .zero) //init playerLayer
+        playerView = HLSPlayerView(frame: UIApplication.shared.keyWindowFrame ?? .zero) // init player layer view with correct frame
         playerView.player = player //sets player on the playerLayer
+        playerView.layerContentsScale = UIScreen.main.scale // set the contentsScale(for retina devices)
         player.replaceCurrentItem(with: playerItem) //setup audio+video playback
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
         self.observeTimeControlStatus()

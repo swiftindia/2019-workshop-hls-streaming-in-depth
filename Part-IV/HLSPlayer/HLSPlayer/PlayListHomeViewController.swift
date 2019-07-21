@@ -24,8 +24,9 @@ class PlayListHomeViewController: UIViewController {
             playerItem.preferredForwardBufferDuration = TimeInterval(20.0)
             playerItem.audioTimePitchAlgorithm = .spectral // highest audio quality
             let player = AVPlayer()
-            let playerView = HLSPlayerView(frame: .zero) // keep the layer hidden
+            let playerView = HLSPlayerView(frame: UIApplication.shared.keyWindowFrame ?? .zero) // init player layer view with correct frame
             playerView.player = player
+            playerView.layerContentsScale = UIScreen.main.scale // set the contentsScale(for retina devices)
             player.replaceCurrentItem(with: playerItem)
             preCachedList.append((player, playerView))
         }
