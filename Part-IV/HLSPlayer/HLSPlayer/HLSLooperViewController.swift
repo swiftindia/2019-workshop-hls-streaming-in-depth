@@ -37,10 +37,11 @@ class HLSLooperViewController: UIViewController {
         player.volume = 0.0
         player.play()
         
-        observer = player.observe(\.currentItem) { [weak self] player, _ in
-            if player.items().count == 1 {
-                self?.addAllVideosToPlayer()
-            }
+        //Trademill pattern
+        observer = player.observe(\.currentItem, options: [.new, .old]) { player, change in
+            guard let removedPlayerItem = change.oldValue as? AVPlayerItem else { return }
+            removedPlayerItem.seek(to: CMTime.zero, completionHandler: nil) // seek to zero
+            player.insert(removedPlayerItem, after: nil)
         }
     }
     
