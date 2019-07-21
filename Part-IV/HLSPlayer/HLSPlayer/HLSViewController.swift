@@ -298,10 +298,16 @@ extension HLSViewController {
     private func togglePlay() {
         if player.timeControlStatus == .playing {
             self.pause()
-            self.playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
         } else if player.timeControlStatus == .paused {
             self.play()
+        }
+    }
+    
+    private func syncPlayPauseButtonImages() {
+        if player.timeControlStatus == .playing {
             self.playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        } else if player.timeControlStatus == .paused {
+            self.playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
         }
     }
     
@@ -335,6 +341,7 @@ extension HLSViewController {
                 fallthrough
             @unknown default:
                 self.videoLoadingIndicator.stopAnimating()
+                self.syncPlayPauseButtonImages()
                 self.playPauseButton.isHidden = false
                 self.initializeScrubberTimer()
             }
