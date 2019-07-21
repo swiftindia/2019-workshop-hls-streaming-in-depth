@@ -24,7 +24,6 @@ class PlayListHomeViewController: UIViewController {
             playerItem.preferredForwardBufferDuration = TimeInterval(20.0)
             playerItem.audioTimePitchAlgorithm = .spectral // highest audio quality
             let player = AVPlayer()
-            //player.automaticallyWaitsToMinimizeStalling = false
             let playerView = HLSPlayerView(frame: .zero) // keep the layer hidden
             playerView.player = player
             player.replaceCurrentItem(with: playerItem)
