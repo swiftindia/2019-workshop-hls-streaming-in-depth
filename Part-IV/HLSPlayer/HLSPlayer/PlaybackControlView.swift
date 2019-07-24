@@ -49,21 +49,6 @@ class PlaybackControlView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.contentView.frame = bounds
-    }
-    
-    private func loadView() {
-        Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
-        addSubview(contentView)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        self.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-    }
-    
     private func setupView() {
         self.loadView()
         volumeSlider.value = self.volume ?? 1.0

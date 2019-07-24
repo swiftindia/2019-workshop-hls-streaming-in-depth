@@ -26,7 +26,7 @@ class HLSViewController: UIViewController {
     @IBOutlet private weak var videoScrubber: UISlider!
     @IBOutlet private weak var currentTime: UILabel!
     @IBOutlet private weak var videoDuration: UILabel!
-    private lazy var playbackControlView = PlaybackControlView(volume: player.volume, brightness: UIScreen.main.brightness, rate: player.rate, quality: QualityVarient.auto.rawValue)
+    private lazy var playbackControlView = PlaybackControlView(volume: player.volume, brightness: UIScreen.main.brightness, rate: player.rate, quality: HLSQualityVarient.auto.rawValue)
     private lazy var slideInViewLauncher = SlideInViewLauncher(slideInView: playbackControlView)
     
     init(playerURL: URL) {
@@ -178,47 +178,6 @@ extension HLSViewController {
     }
 }
 
-//MARK: QualityVarient Type
-extension HLSViewController {
-    private enum QualityVarient: Int {
-        case low
-        case medium
-        case auto
-        case high
-        case hd
-        var bitrate: Double {
-            //https://bitmovin.com/video-bitrate-streaming-hls-dash/
-            switch self {
-            case .low:
-                return 700_000 //for 240p streams
-            case .medium:
-                return 2100_000 //for 480p streams
-            case .auto:
-                return 0 // default preferredPeakBitRate, will highest quality/bitrate supported by your connection
-            case .high:
-                return 4200_000 //for 720p streams
-            case .hd:
-                return 28000_000 //for 2160p streams
-            }
-        }
-        
-        var resolution: CGSize {
-            switch self {
-            case .low:
-                return CGSize(width: 426, height: 240) //for 240p streams
-            case .medium:
-                return CGSize(width: 854, height: 480) //for 480p streams
-            case .auto:
-                return CGSize.zero // default preferredMaximumResolution, will highest resolution supported by your connection
-            case .high:
-                return CGSize(width: 1280, height: 720) //for 720p streams
-            case .hd:
-                return CGSize(width: 4096, height: 2160) //for 2160p streams
-            }
-        }
-    }
-}
-
 //MARK:- Adjusting Volume, Brightness, PlaybackRate, Quality
 extension HLSViewController: PlaybackControlViewDelegate {
     
@@ -242,9 +201,9 @@ extension HLSViewController: PlaybackControlViewDelegate {
         //set the preferredPeakBitRate to adjust quality for iOS 10
         //But actually bitRate heavily depends on the audio/video codec and whether the video is HDR. So, starting iOS 11 we have preferredMaximumResolution
         if #available(iOS 11.0, *) {
-            player.currentItem?.preferredMaximumResolution = QualityVarient(rawValue: quality)?.resolution ?? QualityVarient.auto.resolution
+            player.currentItem?.preferredMaximumResolution = HLSQualityVarient(rawValue: quality)?.resolution ?? HLSQualityVarient.auto.resolution
         } else {
-            player.currentItem?.preferredPeakBitRate = QualityVarient(rawValue: quality)?.bitrate ?? QualityVarient.auto.bitrate
+            player.currentItem?.preferredPeakBitRate = HLSQualityVarient(rawValue: quality)?.bitrate ?? HLSQualityVarient.auto.bitrate
         }
     }
     
@@ -407,7 +366,7 @@ extension HLSViewController {
         //setup and add playerView
         playerView.backgroundColor = .black
         self.view.insertSubview(playerView, at: 0)
-        self.setupConstraintsForPlayerView()
+        self.setupConstraints(for: playerView)
         
         addTapGestureRecognizers() // adding gesture recognizers
 
@@ -450,36 +409,4 @@ extension HLSViewController {
         guard !self.controlView.isHidden else { return }
         self.controlView.isHidden.toggle()
     }
-}
-
-//MARK:- Layout Constraints
-extension HLSViewController {
-    private func setupConstraintsForPlayerView() {
-        playerView.translatesAutoresizingMaskIntoConstraints = false
-        playerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        playerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        playerView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        playerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-    }
-}
-
-
-//MARK:- Utility
-extension HLSViewController {
-    func format(duration: TimeInterval) -> String? {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional // Use the appropriate positioning for the current locale
-        formatter.allowedUnits = duration >= 3600 ?
-            [.hour, .minute, .second] :
-            [.minute, .second] // Units to display in the formatted string
-        formatter.zeroFormattingBehavior = [ .pad ] // Pad with zeroes where appropriate for the locale
-        
-        let formattedDuration = formatter.string(from: duration)
-        return formattedDuration
-    }
-}
-
-extension Notification.Name {
-    /// Notification for when a timebase changed rate
-    static let TimebaseEffectiveRateChangedNotification = Notification.Name(rawValue: kCMTimebaseNotification_EffectiveRateChanged as String)
 }

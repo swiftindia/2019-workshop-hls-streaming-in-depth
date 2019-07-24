@@ -12,8 +12,8 @@ import AVFoundation
 class PlayListHomeViewController: UIViewController {
     @IBOutlet private weak var playlistTableView: UITableView!
     private let playlistCellReuseIdentifier = "PlaylistTableViewCell"
-    
     private let playListVideos = PlayListVideo.allPlayList()
+    
     //precache preferrably 6-20 seconds of top two videos in the playlist
     private lazy var preCachedList: [(player: AVPlayer, playerView: HLSPlayerView)] = {
         var preCachedList = [(AVPlayer, HLSPlayerView)]()
@@ -66,7 +66,7 @@ class PlayListHomeViewController: UIViewController {
         _ = self.preCachedList // init precache list
         // Do any additional setup after loading the view.
         self.add(hlsLooperViewController)
-        self.setupLooperViewConstraints()
+        self.setupConstraints(for: hlsLooperViewController.view)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,30 +78,6 @@ class PlayListHomeViewController: UIViewController {
         }
     }
 }
-
-//MARK:- Setup Constraints
-extension PlayListHomeViewController {
-    private func setupLooperViewConstraints() {
-        hlsLooperViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        // Specifying constraints.
-        hlsLooperViewController.view.widthAnchor.constraint(equalToConstant: 180).isActive = true
-        hlsLooperViewController.view.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        if #available(iOS 11.0, *) {
-            hlsLooperViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20.0).isActive = true
-        } else {
-            // Fallback on earlier versions
-            hlsLooperViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0).isActive = true
-        }
-        
-        if #available(iOS 11.0, *) {
-            hlsLooperViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0.0).isActive = true
-        } else {
-            // Fallback on earlier versions
-            hlsLooperViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20.0).isActive = true
-        }
-    }
-}
-
 
 extension PlayListHomeViewController: UITableViewDelegate {
     
@@ -139,27 +115,3 @@ extension PlayListHomeViewController: UITableViewDataSource {
         return 1
     }
 }
-
-
-
-//MARK:- Utility
-extension UIViewController {
-    func add(_ child: UIViewController) {
-        addChild(child)
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
-    }
-    
-    func remove() {
-        // Just to be safe, we check that this view controller
-        // is actually added to a parent before removing it.
-        guard parent != nil else {
-            return
-        }
-        
-        willMove(toParent: nil)
-        view.removeFromSuperview()
-        removeFromParent()
-    }
-}
-
