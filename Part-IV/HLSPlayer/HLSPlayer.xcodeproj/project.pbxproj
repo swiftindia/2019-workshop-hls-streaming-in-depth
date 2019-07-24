@@ -26,6 +26,7 @@
 		DAEE3BDC22E102D800CC881E /* shark-clip.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DAEE3BD822E102D800CC881E /* shark-clip.mp4 */; };
 		DAEE3BDE22E1A5CA00CC881E /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BDD22E1A5CA00CC881E /* PlaylistTableViewCell.swift */; };
 		DAEE3BE022E1AF2200CC881E /* PlayListVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BDF22E1AF2200CC881E /* PlayListVideo.swift */; };
+		DAEE3C0022E8EC6800CC881E /* PerfMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BFF22E8EC6700CC881E /* PerfMeasurements.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		DAEE3BD822E102D800CC881E /* shark-clip.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "shark-clip.mp4"; sourceTree = "<group>"; };
 		DAEE3BDD22E1A5CA00CC881E /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		DAEE3BDF22E1AF2200CC881E /* PlayListVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListVideo.swift; sourceTree = "<group>"; };
+		DAEE3BFF22E8EC6700CC881E /* PerfMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfMeasurements.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				DAEE3BDD22E1A5CA00CC881E /* PlaylistTableViewCell.swift */,
 				DA2A200D22DDFB1F004B2860 /* HLSViewController.swift */,
 				DA2A200E22DDFB1F004B2860 /* HLSViewController.xib */,
+				DAEE3BFF22E8EC6700CC881E /* PerfMeasurements.swift */,
 				DAEE3BCE22E0DA9900CC881E /* HLSLooperViewController.swift */,
 				DAEE3BCF22E0DA9900CC881E /* HLSLooperViewController.xib */,
 				DA2A200B22DDFAE7004B2860 /* HLSPlayerView.swift */,
@@ -197,6 +200,7 @@
 				DA2A1FFC22DDFABD004B2860 /* PlayListHomeViewController.swift in Sources */,
 				DA2A200C22DDFAE7004B2860 /* HLSPlayerView.swift in Sources */,
 				DAEE3BDE22E1A5CA00CC881E /* PlaylistTableViewCell.swift in Sources */,
+				DAEE3C0022E8EC6800CC881E /* PerfMeasurements.swift in Sources */,
 				DAEE3BC722E02C6F00CC881E /* SlideInViewLauncher.swift in Sources */,
 				DA2A1FFA22DDFABD004B2860 /* AppDelegate.swift in Sources */,
 				DAEE3BD022E0DA9900CC881E /* HLSLooperViewController.swift in Sources */,

@@ -13,6 +13,7 @@ class HLSViewController: UIViewController {
     private let player: AVPlayer
     private let playerItem: AVPlayerItem
     private let playerView: HLSPlayerView
+    private var perfMeasurements: PerfMeasurements? // performance measurements
     private weak var timer: Timer?
     private var observer: NSKeyValueObservation?
     private var timeObserver: Any?
@@ -27,43 +28,6 @@ class HLSViewController: UIViewController {
     @IBOutlet private weak var videoDuration: UILabel!
     private lazy var playbackControlView = PlaybackControlView(volume: player.volume, brightness: UIScreen.main.brightness, rate: player.rate, quality: QualityVarient.auto.rawValue)
     private lazy var slideInViewLauncher = SlideInViewLauncher(slideInView: playbackControlView)
-    private enum QualityVarient: Int {
-        case low
-        case medium
-        case auto
-        case high
-        case hd
-        var bitrate: Double {
-            //https://bitmovin.com/video-bitrate-streaming-hls-dash/
-            switch self {
-            case .low:
-                return 700_000 //for 240p streams
-            case .medium:
-                return 2100_000 //for 480p streams
-            case .auto:
-                return 0 // default preferredPeakBitRate, will highest quality/bitrate supported by your connection
-            case .high:
-                return 4200_000 //for 720p streams
-            case .hd:
-                return 28000_000 //for 2160p streams
-            }
-        }
-        
-        var resolution: CGSize {
-            switch self {
-            case .low:
-                return CGSize(width: 426, height: 240) //for 240p streams
-            case .medium:
-                return CGSize(width: 854, height: 480) //for 480p streams
-            case .auto:
-                return CGSize.zero // default preferredMaximumResolution, will highest resolution supported by your connection
-            case .high:
-                return CGSize(width: 1280, height: 720) //for 720p streams
-            case .hd:
-                return CGSize(width: 4096, height: 2160) //for 2160p streams
-            }
-        }
-    }
     
     init(playerURL: URL) {
         let asset = AVURLAsset(url: playerURL)
@@ -75,9 +39,10 @@ class HLSViewController: UIViewController {
         playerView.player = player //sets player on the playerLayer
         playerView.layerContentsScale = UIScreen.main.scale // set the contentsScale(for retina devices)
         player.replaceCurrentItem(with: playerItem) //setup audio+video playback
+        perfMeasurements = PerfMeasurements(playerItem: playerItem) // init performance measurements
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
         self.observeTimeControlStatus()
-        self.registerPlayerDidReachedEndNotification()
+        self.registerNotifications()
     }
     
     //Use this init for precaching
@@ -87,9 +52,10 @@ class HLSViewController: UIViewController {
         self.playerItem = playerItem
         self.player  = player
         self.playerView = playerView
+        self.perfMeasurements = PerfMeasurements(playerItem: playerItem) // init performance measurements
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
         self.observeTimeControlStatus()
-        self.registerPlayerDidReachedEndNotification()
+        self.registerNotifications()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -98,7 +64,11 @@ class HLSViewController: UIViewController {
     
     deinit {
         self.removePlayerTimeObserver()
-        NotificationCenter.default.removeObserver(self)
+        // Remove all notifications explicitly, maybe not required now
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self, name: .TimebaseEffectiveRateChangedNotification, object: playerItem.timebase)
+        notificationCenter.removeObserver(self, name: .AVPlayerItemPlaybackStalled, object: playerItem)
+        notificationCenter.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: playerItem)
         timer?.invalidate()
         observer?.invalidate()
     }
@@ -205,6 +175,47 @@ extension HLSViewController {
     
     func disableScrubber() {
         videoScrubber.isEnabled = false
+    }
+}
+
+//MARK: QualityVarient Type
+extension HLSViewController {
+    private enum QualityVarient: Int {
+        case low
+        case medium
+        case auto
+        case high
+        case hd
+        var bitrate: Double {
+            //https://bitmovin.com/video-bitrate-streaming-hls-dash/
+            switch self {
+            case .low:
+                return 700_000 //for 240p streams
+            case .medium:
+                return 2100_000 //for 480p streams
+            case .auto:
+                return 0 // default preferredPeakBitRate, will highest quality/bitrate supported by your connection
+            case .high:
+                return 4200_000 //for 720p streams
+            case .hd:
+                return 28000_000 //for 2160p streams
+            }
+        }
+        
+        var resolution: CGSize {
+            switch self {
+            case .low:
+                return CGSize(width: 426, height: 240) //for 240p streams
+            case .medium:
+                return CGSize(width: 854, height: 480) //for 480p streams
+            case .auto:
+                return CGSize.zero // default preferredMaximumResolution, will highest resolution supported by your connection
+            case .high:
+                return CGSize(width: 1280, height: 720) //for 720p streams
+            case .hd:
+                return CGSize(width: 4096, height: 2160) //for 2160p streams
+            }
+        }
     }
 }
 
@@ -349,16 +360,36 @@ extension HLSViewController {
         }
     }
     
-    private func registerPlayerDidReachedEndNotification() {
+    private func registerNotifications() {
+        let notificationCenter = NotificationCenter.default
         // Register for AVPlayerItemDidPlayToEndTime i.e. the player item has played to its end time
-        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: .AVPlayerItemDidPlayToEndTime, object: playerItem)
+        notificationCenter.addObserver(self, selector: #selector(playerItemDidReachEnd(_:)), name: .AVPlayerItemDidPlayToEndTime, object: playerItem)
+        
+        //Register for timebase rate change and playback stalled notifications
+        notificationCenter.addObserver(self,
+                                       selector: #selector(handleTimebaseRateChanged(_:)),
+                                       name: .TimebaseEffectiveRateChangedNotification, object: playerItem.timebase)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(handlePlaybackStalled(_:)), name: .AVPlayerItemPlaybackStalled, object: playerItem)
     }
     
     @objc func playerItemDidReachEnd(_ notification: Notification) {
+        perfMeasurements?.playbackEnded() // mark playback as ended
         player.seek(to: CMTime.zero) // seek to time zero on reaching end
         togglePlay() //on reaching end player.timeControlStatus is playing, toggle it to pause
     }
     
+    @objc func handleTimebaseRateChanged(_ notification: Notification) {
+        if CMTimebaseGetTypeID() == CFGetTypeID(notification.object as CFTypeRef) {
+            let timebase = notification.object as! CMTimebase
+            let rate: Double = CMTimebaseGetRate(timebase)
+            perfMeasurements?.rateChanged(rate: rate)
+        }
+    }
+    
+    @objc func handlePlaybackStalled(_ notification: Notification) {
+        perfMeasurements?.playbackStalled()
+    }
 }
 
 //MARK: - Toggle Show/Hide ControlView
@@ -446,4 +477,9 @@ extension HLSViewController {
         let formattedDuration = formatter.string(from: duration)
         return formattedDuration
     }
+}
+
+extension Notification.Name {
+    /// Notification for when a timebase changed rate
+    static let TimebaseEffectiveRateChangedNotification = Notification.Name(rawValue: kCMTimebaseNotification_EffectiveRateChanged as String)
 }
