@@ -30,7 +30,7 @@ extension UIViewController {
 }
 
 //MARK:- Setup Constraints
-extension PlayListHomeViewController {
+extension PlayListViewController {
     func setupConstraints(for looperView: UIView) {
         looperView.translatesAutoresizingMaskIntoConstraints = false
         // Specifying constraints.
@@ -53,7 +53,7 @@ extension PlayListHomeViewController {
 }
 
 //MARK:- Layout Constraints
-extension HLSViewController {
+extension HLSPlayerViewController {
     func setupConstraints(for playerView: HLSPlayerView) {
         playerView.translatesAutoresizingMaskIntoConstraints = false
         playerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true

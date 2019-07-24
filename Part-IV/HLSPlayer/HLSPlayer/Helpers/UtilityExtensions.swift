@@ -16,7 +16,7 @@ extension UIApplication {
     }
 }
 
-extension HLSViewController {
+extension HLSPlayerViewController {
     func format(duration: TimeInterval) -> String? {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional // Use the appropriate positioning for the current locale

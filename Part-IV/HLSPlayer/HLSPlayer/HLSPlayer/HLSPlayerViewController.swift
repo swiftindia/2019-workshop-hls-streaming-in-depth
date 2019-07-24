@@ -1,5 +1,5 @@
 //
-//  HLSViewController.swift
+//  HLSPlayerViewController.swift
 //  HLSPlayer
 //
 //  Created by soaurabh on 16/07/19.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class HLSViewController: UIViewController {
+class HLSPlayerViewController: UIViewController {
     private let player: AVPlayer
     private let playerItem: AVPlayerItem
     private let playerView: HLSPlayerView
@@ -79,7 +79,7 @@ class HLSViewController: UIViewController {
 }
 
 //MARK:- Video Scrubbing/Seeking
-extension HLSViewController {
+extension HLSPlayerViewController {
     // updates the video scrubber control repeatedly during playback
     func initializeScrubberTimer() {
         var interval = Double(0.1)
@@ -179,7 +179,7 @@ extension HLSViewController {
 }
 
 //MARK:- Adjusting Volume, Brightness, PlaybackRate, Quality
-extension HLSViewController: PlaybackControlViewDelegate {
+extension HLSPlayerViewController: PlaybackControlViewDelegate {
     
     @IBAction func showPlaybackControlView(_ sender: UIButton) {
         slideInViewLauncher.show()
@@ -213,7 +213,7 @@ extension HLSViewController: PlaybackControlViewDelegate {
 }
 
 //MARK:- Forward/Backward
-extension HLSViewController {
+extension HLSPlayerViewController {
     @IBAction func fastBackward(_ sender: UIButton) {
         guard let playerDuration = self.playerItemDuration else { return }
         let duration = CMTimeGetSeconds(playerDuration)
@@ -242,7 +242,7 @@ extension HLSViewController {
 }
 
 //MARK:- Player Item
-extension HLSViewController {
+extension HLSPlayerViewController {
     var playerItemDuration: CMTime? {
         // Check if the current playerItem exists and is readyToPlay
         guard let playerItem = self.player.currentItem else { return nil }
@@ -261,7 +261,7 @@ extension HLSViewController {
 
 
 //MARK:- Player Play/Pause
-extension HLSViewController {
+extension HLSPlayerViewController {
     @IBAction func togglePlay(_ sender: UIButton) {
         self.togglePlay()
     }
@@ -294,7 +294,7 @@ extension HLSViewController {
 }
 
 //MARK:- Observe TimeControlStatus
-extension HLSViewController {
+extension HLSPlayerViewController {
     //Show/Hide videoLoading Indicator based on timeControlStatus
     private func observeTimeControlStatus() {
         observer = player.observe(\.timeControlStatus) { [weak self] player, _ in
@@ -352,7 +352,7 @@ extension HLSViewController {
 }
 
 //MARK: - Toggle Show/Hide ControlView
-extension HLSViewController {
+extension HLSPlayerViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -394,7 +394,7 @@ extension HLSViewController {
 }
 
 //MARK: - AutoHide ControlView
-extension HLSViewController {
+extension HLSPlayerViewController {
     private func autoHideControlView(after timeInterval: TimeInterval) {
         timer?.invalidate() // invalidate any previous timer
         timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false) { [weak self] timer in

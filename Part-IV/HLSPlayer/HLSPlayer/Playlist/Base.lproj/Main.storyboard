@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wiz-Nc-VNw">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,24 +9,24 @@
         <!--HLS Using AVFoundation-->
         <scene sceneID="UfB-eJ-8XE">
             <objects>
-                <viewController id="6U2-G5-5Yc" customClass="PlayListHomeViewController" customModule="HLSPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6U2-G5-5Yc" customClass="PlayListViewController" customModule="HLSPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tbb-Eg-vq0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IwV-hu-CPy">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlaylistTableViewCell" rowHeight="222" id="cxc-4v-qU8" customClass="PlaylistTableViewCell" customModule="HLSPlayer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="222"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="222"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cxc-4v-qU8" id="AEZ-Mu-RX7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="222"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nKS-bs-A6n">
-                                                    <rect key="frame" x="20" y="11" width="374" height="200"/>
+                                                    <rect key="frame" x="15" y="11" width="384" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="cqq-tN-OqW"/>
                                                     </constraints>

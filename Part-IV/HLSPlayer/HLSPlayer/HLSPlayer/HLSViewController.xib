@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HLSViewController" customModule="HLSPlayer" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HLSPlayerViewController" customModule="HLSPlayer" customModuleProvider="target">
             <connections>
                 <outlet property="controlView" destination="lOh-zF-BHo" id="Jeg-Q2-gyP"/>
                 <outlet property="currentTime" destination="xWA-ng-Hlu" id="UlY-fu-88T"/>
@@ -96,7 +92,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tm-FG-KVk">
-                            <rect key="frame" x="362" y="60" width="36" height="36"/>
+                            <rect key="frame" x="362" y="36" width="36" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="ecE-wJ-FBD"/>
                                 <constraint firstAttribute="width" constant="36" id="ykt-iE-yBz"/>
@@ -109,7 +105,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLA-7V-jwT">
-                            <rect key="frame" x="16" y="60" width="36" height="36"/>
+                            <rect key="frame" x="16" y="36" width="36" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="Hst-om-dDE"/>
                                 <constraint firstAttribute="width" constant="36" id="X4b-qQ-g9m"/>

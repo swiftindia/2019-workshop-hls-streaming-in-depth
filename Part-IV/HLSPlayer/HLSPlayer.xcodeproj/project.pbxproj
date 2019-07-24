@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DA2A1FFA22DDFABD004B2860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A1FF922DDFABD004B2860 /* AppDelegate.swift */; };
-		DA2A1FFC22DDFABD004B2860 /* PlayListHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A1FFB22DDFABD004B2860 /* PlayListHomeViewController.swift */; };
+		DA2A1FFC22DDFABD004B2860 /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A1FFB22DDFABD004B2860 /* PlayListViewController.swift */; };
 		DA2A1FFF22DDFABD004B2860 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2A1FFD22DDFABD004B2860 /* Main.storyboard */; };
 		DA2A200122DDFABF004B2860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2A200022DDFABF004B2860 /* Assets.xcassets */; };
 		DA2A200422DDFABF004B2860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2A200222DDFABF004B2860 /* LaunchScreen.storyboard */; };
 		DA2A200C22DDFAE7004B2860 /* HLSPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A200B22DDFAE7004B2860 /* HLSPlayerView.swift */; };
-		DA2A200F22DDFB1F004B2860 /* HLSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A200D22DDFB1F004B2860 /* HLSViewController.swift */; };
+		DA2A200F22DDFB1F004B2860 /* HLSPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A200D22DDFB1F004B2860 /* HLSPlayerViewController.swift */; };
 		DA2A201022DDFB1F004B2860 /* HLSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2A200E22DDFB1F004B2860 /* HLSViewController.xib */; };
 		DAEE3BC722E02C6F00CC881E /* SlideInViewLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BC622E02C6F00CC881E /* SlideInViewLauncher.swift */; };
 		DAEE3BC922E02CF000CC881E /* PlaybackControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BC822E02CF000CC881E /* PlaybackControlView.swift */; };
@@ -35,13 +35,13 @@
 /* Begin PBXFileReference section */
 		DA2A1FF622DDFABD004B2860 /* HLSPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HLSPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2A1FF922DDFABD004B2860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA2A1FFB22DDFABD004B2860 /* PlayListHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListHomeViewController.swift; sourceTree = "<group>"; };
+		DA2A1FFB22DDFABD004B2860 /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
 		DA2A1FFE22DDFABD004B2860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA2A200022DDFABF004B2860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA2A200322DDFABF004B2860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA2A200522DDFABF004B2860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA2A200B22DDFAE7004B2860 /* HLSPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSPlayerView.swift; sourceTree = "<group>"; };
-		DA2A200D22DDFB1F004B2860 /* HLSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSViewController.swift; sourceTree = "<group>"; };
+		DA2A200D22DDFB1F004B2860 /* HLSPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSPlayerViewController.swift; sourceTree = "<group>"; };
 		DA2A200E22DDFB1F004B2860 /* HLSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HLSViewController.xib; sourceTree = "<group>"; };
 		DAEE3BC622E02C6F00CC881E /* SlideInViewLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInViewLauncher.swift; sourceTree = "<group>"; };
 		DAEE3BC822E02CF000CC881E /* PlaybackControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControlView.swift; sourceTree = "<group>"; };
@@ -91,31 +91,20 @@
 			isa = PBXGroup;
 			children = (
 				DA2A1FF922DDFABD004B2860 /* AppDelegate.swift */,
-				DA2A1FFB22DDFABD004B2860 /* PlayListHomeViewController.swift */,
-				DAEE3BDF22E1AF2200CC881E /* PlayListVideo.swift */,
-				DA2A1FFD22DDFABD004B2860 /* Main.storyboard */,
-				DAEE3BDD22E1A5CA00CC881E /* PlaylistTableViewCell.swift */,
-				DA2A200D22DDFB1F004B2860 /* HLSViewController.swift */,
-				DA2A200E22DDFB1F004B2860 /* HLSViewController.xib */,
-				DAEE3C0122E8FAB500CC881E /* Layouts.swift */,
-				DAEE3C0322E8FE9100CC881E /* UtilityExtensions.swift */,
-				DAEE3C0522E8FF4F00CC881E /* HLSQualityVarient.swift */,
-				DAEE3BFF22E8EC6700CC881E /* PerfMeasurements.swift */,
-				DAEE3BCE22E0DA9900CC881E /* HLSLooperViewController.swift */,
-				DAEE3BCF22E0DA9900CC881E /* HLSLooperViewController.xib */,
-				DA2A200B22DDFAE7004B2860 /* HLSPlayerView.swift */,
-				DAEE3BC822E02CF000CC881E /* PlaybackControlView.swift */,
-				DAEE3BCA22E02D0100CC881E /* PlaybackControlView.xib */,
-				DAEE3BC622E02C6F00CC881E /* SlideInViewLauncher.swift */,
+				DAEE3C0722E9011900CC881E /* Playlist */,
+				DAEE3C0822E9017800CC881E /* HLSPlayer */,
+				DAEE3C0922E901F800CC881E /* HLSLooper */,
+				DAEE3C0B22E9029300CC881E /* Managers */,
+				DAEE3C0A22E9021800CC881E /* Helpers */,
 				DA2A200022DDFABF004B2860 /* Assets.xcassets */,
 				DA2A200222DDFABF004B2860 /* LaunchScreen.storyboard */,
 				DA2A200522DDFABF004B2860 /* Info.plist */,
-				DAEE3BD422E102D800CC881E /* VideoClips */,
+				DAEE3BD422E102D800CC881E /* MediaAssets */,
 			);
 			path = HLSPlayer;
 			sourceTree = "<group>";
 		};
-		DAEE3BD422E102D800CC881E /* VideoClips */ = {
+		DAEE3BD422E102D800CC881E /* MediaAssets */ = {
 			isa = PBXGroup;
 			children = (
 				DAEE3BD522E102D800CC881E /* newYorkFlip-clip.mp4 */,
@@ -123,7 +112,58 @@
 				DAEE3BD722E102D800CC881E /* monkey-clip.mp4 */,
 				DAEE3BD822E102D800CC881E /* shark-clip.mp4 */,
 			);
-			path = VideoClips;
+			path = MediaAssets;
+			sourceTree = "<group>";
+		};
+		DAEE3C0722E9011900CC881E /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				DA2A1FFB22DDFABD004B2860 /* PlayListViewController.swift */,
+				DAEE3BDF22E1AF2200CC881E /* PlayListVideo.swift */,
+				DA2A1FFD22DDFABD004B2860 /* Main.storyboard */,
+				DAEE3BDD22E1A5CA00CC881E /* PlaylistTableViewCell.swift */,
+			);
+			path = Playlist;
+			sourceTree = "<group>";
+		};
+		DAEE3C0822E9017800CC881E /* HLSPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				DA2A200D22DDFB1F004B2860 /* HLSPlayerViewController.swift */,
+				DAEE3C0522E8FF4F00CC881E /* HLSQualityVarient.swift */,
+				DA2A200E22DDFB1F004B2860 /* HLSViewController.xib */,
+				DA2A200B22DDFAE7004B2860 /* HLSPlayerView.swift */,
+				DAEE3BC822E02CF000CC881E /* PlaybackControlView.swift */,
+				DAEE3BCA22E02D0100CC881E /* PlaybackControlView.xib */,
+			);
+			path = HLSPlayer;
+			sourceTree = "<group>";
+		};
+		DAEE3C0922E901F800CC881E /* HLSLooper */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE3BCE22E0DA9900CC881E /* HLSLooperViewController.swift */,
+				DAEE3BCF22E0DA9900CC881E /* HLSLooperViewController.xib */,
+			);
+			path = HLSLooper;
+			sourceTree = "<group>";
+		};
+		DAEE3C0A22E9021800CC881E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE3C0122E8FAB500CC881E /* Layouts.swift */,
+				DAEE3C0322E8FE9100CC881E /* UtilityExtensions.swift */,
+				DAEE3BC622E02C6F00CC881E /* SlideInViewLauncher.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DAEE3C0B22E9029300CC881E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE3BFF22E8EC6700CC881E /* PerfMeasurements.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,10 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEE3BE022E1AF2200CC881E /* PlayListVideo.swift in Sources */,
-				DA2A200F22DDFB1F004B2860 /* HLSViewController.swift in Sources */,
+				DA2A200F22DDFB1F004B2860 /* HLSPlayerViewController.swift in Sources */,
 				DAEE3C0422E8FE9100CC881E /* UtilityExtensions.swift in Sources */,
 				DAEE3C0622E8FF4F00CC881E /* HLSQualityVarient.swift in Sources */,
-				DA2A1FFC22DDFABD004B2860 /* PlayListHomeViewController.swift in Sources */,
+				DA2A1FFC22DDFABD004B2860 /* PlayListViewController.swift in Sources */,
 				DA2A200C22DDFAE7004B2860 /* HLSPlayerView.swift in Sources */,
 				DAEE3BDE22E1A5CA00CC881E /* PlaylistTableViewCell.swift in Sources */,
 				DAEE3C0022E8EC6800CC881E /* PerfMeasurements.swift in Sources */,

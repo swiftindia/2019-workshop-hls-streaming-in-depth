@@ -1,5 +1,5 @@
 //
-//  PlayListHomeViewController.swift
+//  PlayListViewController.swift
 //  HLSPlayer
 //
 //  Created by soaurabh on 16/07/19.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class PlayListHomeViewController: UIViewController {
+class PlayListViewController: UIViewController {
     @IBOutlet private weak var playlistTableView: UITableView!
     private let playlistCellReuseIdentifier = "PlaylistTableViewCell"
     private let playListVideos = PlayListVideo.allPlayList()
@@ -34,7 +34,7 @@ class PlayListHomeViewController: UIViewController {
     }()
     
     //Looper View Controller
-    private lazy var hlsLooperViewController = HLSLooperViewController(playlistURLs: videoPlaylistURLs)
+    private lazy var looperViewController = HLSLooperViewController(playlistURLs: videoPlaylistURLs)
     private lazy var videoPlaylistURLs: [URL] = {
         //play local plus hls-stream, playlist-credits: raywenderlich.com
         let names = ["newYorkFlip-clip", "bulletTrain-clip", "monkey-clip", "shark-clip"]
@@ -51,22 +51,22 @@ class PlayListHomeViewController: UIViewController {
         super.viewWillAppear(animated)
         
         //Start the looping video player when the view appears
-        hlsLooperViewController.play()
+        looperViewController.play()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         //Make sure it's paused when the user leaves this screen
-        hlsLooperViewController.pause()
+        looperViewController.pause()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = self.preCachedList // init precache list
         // Do any additional setup after loading the view.
-        self.add(hlsLooperViewController)
-        self.setupConstraints(for: hlsLooperViewController.view)
+        self.add(looperViewController)
+        self.setupConstraints(for: looperViewController.view)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,18 +79,18 @@ class PlayListHomeViewController: UIViewController {
     }
 }
 
-extension PlayListHomeViewController: UITableViewDelegate {
+extension PlayListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Create an HLSViewController and present it when the user taps
+        // Create an HLSPlayerViewController and present it when the user taps
         let video = playListVideos[indexPath.row]
         let videoURL = video.url
         let videoIndex = indexPath.row
-        let hlsViewController: HLSViewController
+        let hlsViewController: HLSPlayerViewController
         if videoIndex < preCachedList.count {
-            hlsViewController = HLSViewController(player: preCachedList[videoIndex].player, playerView: preCachedList[videoIndex].playerView) ?? HLSViewController(playerURL: videoURL)
+            hlsViewController = HLSPlayerViewController(player: preCachedList[videoIndex].player, playerView: preCachedList[videoIndex].playerView) ?? HLSPlayerViewController(playerURL: videoURL)
         } else {
-            hlsViewController = HLSViewController(playerURL: videoURL)
+            hlsViewController = HLSPlayerViewController(playerURL: videoURL)
         }
         present(hlsViewController, animated: true) {
             hlsViewController.play()
@@ -98,7 +98,7 @@ extension PlayListHomeViewController: UITableViewDelegate {
     }
 }
 
-extension PlayListHomeViewController: UITableViewDataSource {
+extension PlayListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let playlistCell = tableView.dequeueReusableCell(withIdentifier: playlistCellReuseIdentifier, for: indexPath) as? PlaylistTableViewCell else {
             return PlaylistTableViewCell()
