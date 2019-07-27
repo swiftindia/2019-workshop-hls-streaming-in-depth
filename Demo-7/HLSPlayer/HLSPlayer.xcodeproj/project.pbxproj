@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA2A1FFA22DDFABD004B2860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A1FF922DDFABD004B2860 /* AppDelegate.swift */; };
+		DA2A1FFC22DDFABD004B2860 /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A1FFB22DDFABD004B2860 /* PlayListViewController.swift */; };
+		DA2A1FFF22DDFABD004B2860 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2A1FFD22DDFABD004B2860 /* Main.storyboard */; };
+		DA2A200122DDFABF004B2860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2A200022DDFABF004B2860 /* Assets.xcassets */; };
+		DA2A200422DDFABF004B2860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2A200222DDFABF004B2860 /* LaunchScreen.storyboard */; };
+		DA2A200C22DDFAE7004B2860 /* HLSPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A200B22DDFAE7004B2860 /* HLSPlayerView.swift */; };
+		DA2A200F22DDFB1F004B2860 /* HLSPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2A200D22DDFB1F004B2860 /* HLSPlayerViewController.swift */; };
+		DA2A201022DDFB1F004B2860 /* HLSPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2A200E22DDFB1F004B2860 /* HLSPlayerViewController.xib */; };
+		DAEE3BC722E02C6F00CC881E /* SlideInViewLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BC622E02C6F00CC881E /* SlideInViewLauncher.swift */; };
+		DAEE3BC922E02CF000CC881E /* PlaybackControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BC822E02CF000CC881E /* PlaybackControlView.swift */; };
+		DAEE3BCB22E02D0100CC881E /* PlaybackControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAEE3BCA22E02D0100CC881E /* PlaybackControlView.xib */; };
+		DAEE3BD022E0DA9900CC881E /* HLSLooperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BCE22E0DA9900CC881E /* HLSLooperViewController.swift */; };
+		DAEE3BD122E0DA9900CC881E /* HLSLooperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAEE3BCF22E0DA9900CC881E /* HLSLooperViewController.xib */; };
+		DAEE3BD922E102D800CC881E /* newYorkFlip-clip.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DAEE3BD522E102D800CC881E /* newYorkFlip-clip.mp4 */; };
+		DAEE3BDA22E102D800CC881E /* bulletTrain-clip.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DAEE3BD622E102D800CC881E /* bulletTrain-clip.mp4 */; };
+		DAEE3BDB22E102D800CC881E /* monkey-clip.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DAEE3BD722E102D800CC881E /* monkey-clip.mp4 */; };
+		DAEE3BDC22E102D800CC881E /* shark-clip.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DAEE3BD822E102D800CC881E /* shark-clip.mp4 */; };
+		DAEE3BDE22E1A5CA00CC881E /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BDD22E1A5CA00CC881E /* PlaylistTableViewCell.swift */; };
+		DAEE3BE022E1AF2200CC881E /* PlayListVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BDF22E1AF2200CC881E /* PlayListVideo.swift */; };
+		DAEE3C0022E8EC6800CC881E /* PerfMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3BFF22E8EC6700CC881E /* PerfMeasurements.swift */; };
+		DAEE3C0222E8FAB500CC881E /* Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3C0122E8FAB500CC881E /* Layouts.swift */; };
+		DAEE3C0422E8FE9100CC881E /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3C0322E8FE9100CC881E /* UtilityExtensions.swift */; };
+		DAEE3C0622E8FF4F00CC881E /* HLSQualityVarient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE3C0522E8FF4F00CC881E /* HLSQualityVarient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DA2A1FF622DDFABD004B2860 /* HLSPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HLSPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2A1FF922DDFABD004B2860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA2A1FFB22DDFABD004B2860 /* PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
+		DA2A1FFE22DDFABD004B2860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA2A200022DDFABF004B2860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA2A200322DDFABF004B2860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA2A200522DDFABF004B2860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2A200B22DDFAE7004B2860 /* HLSPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSPlayerView.swift; sourceTree = "<group>"; };
+		DA2A200D22DDFB1F004B2860 /* HLSPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSPlayerViewController.swift; sourceTree = "<group>"; };
+		DA2A200E22DDFB1F004B2860 /* HLSPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HLSPlayerViewController.xib; sourceTree = "<group>"; };
+		DAEE3BC622E02C6F00CC881E /* SlideInViewLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInViewLauncher.swift; sourceTree = "<group>"; };
+		DAEE3BC822E02CF000CC881E /* PlaybackControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControlView.swift; sourceTree = "<group>"; };
+		DAEE3BCA22E02D0100CC881E /* PlaybackControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaybackControlView.xib; sourceTree = "<group>"; };
+		DAEE3BCE22E0DA9900CC881E /* HLSLooperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSLooperViewController.swift; sourceTree = "<group>"; };
+		DAEE3BCF22E0DA9900CC881E /* HLSLooperViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HLSLooperViewController.xib; sourceTree = "<group>"; };
+		DAEE3BD522E102D800CC881E /* newYorkFlip-clip.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "newYorkFlip-clip.mp4"; sourceTree = "<group>"; };
+		DAEE3BD622E102D800CC881E /* bulletTrain-clip.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bulletTrain-clip.mp4"; sourceTree = "<group>"; };
+		DAEE3BD722E102D800CC881E /* monkey-clip.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "monkey-clip.mp4"; sourceTree = "<group>"; };
+		DAEE3BD822E102D800CC881E /* shark-clip.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "shark-clip.mp4"; sourceTree = "<group>"; };
+		DAEE3BDD22E1A5CA00CC881E /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
+		DAEE3BDF22E1AF2200CC881E /* PlayListVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListVideo.swift; sourceTree = "<group>"; };
+		DAEE3BFF22E8EC6700CC881E /* PerfMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfMeasurements.swift; sourceTree = "<group>"; };
+		DAEE3C0122E8FAB500CC881E /* Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouts.swift; sourceTree = "<group>"; };
+		DAEE3C0322E8FE9100CC881E /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
+		DAEE3C0522E8FF4F00CC881E /* HLSQualityVarient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLSQualityVarient.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA2A1FF322DDFABD004B2860 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA2A1FED22DDFABD004B2860 = {
+			isa = PBXGroup;
+			children = (
+				DA2A1FF822DDFABD004B2860 /* HLSPlayer */,
+				DA2A1FF722DDFABD004B2860 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA2A1FF722DDFABD004B2860 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA2A1FF622DDFABD004B2860 /* HLSPlayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA2A1FF822DDFABD004B2860 /* HLSPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				DA2A1FF922DDFABD004B2860 /* AppDelegate.swift */,
+				DAEE3C0722E9011900CC881E /* Playlist */,
+				DAEE3C0822E9017800CC881E /* HLSPlayer */,
+				DAEE3C0922E901F800CC881E /* HLSLooper */,
+				DAEE3C0B22E9029300CC881E /* Managers */,
+				DAEE3C0A22E9021800CC881E /* Helpers */,
+				DA2A200022DDFABF004B2860 /* Assets.xcassets */,
+				DA2A200222DDFABF004B2860 /* LaunchScreen.storyboard */,
+				DA2A200522DDFABF004B2860 /* Info.plist */,
+				DAEE3BD422E102D800CC881E /* MediaAssets */,
+			);
+			path = HLSPlayer;
+			sourceTree = "<group>";
+		};
+		DAEE3BD422E102D800CC881E /* MediaAssets */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE3BD522E102D800CC881E /* newYorkFlip-clip.mp4 */,
+				DAEE3BD622E102D800CC881E /* bulletTrain-clip.mp4 */,
+				DAEE3BD722E102D800CC881E /* monkey-clip.mp4 */,
+				DAEE3BD822E102D800CC881E /* shark-clip.mp4 */,
+			);
+			path = MediaAssets;
+			sourceTree = "<group>";
+		};
+		DAEE3C0722E9011900CC881E /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				DA2A1FFB22DDFABD004B2860 /* PlayListViewController.swift */,
+				DAEE3BDF22E1AF2200CC881E /* PlayListVideo.swift */,
+				DA2A1FFD22DDFABD004B2860 /* Main.storyboard */,
+				DAEE3BDD22E1A5CA00CC881E /* PlaylistTableViewCell.swift */,
+			);
+			path = Playlist;
+			sourceTree = "<group>";
+		};
+		DAEE3C0822E9017800CC881E /* HLSPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				DA2A200D22DDFB1F004B2860 /* HLSPlayerViewController.swift */,
+				DAEE3C0522E8FF4F00CC881E /* HLSQualityVarient.swift */,
+				DA2A200E22DDFB1F004B2860 /* HLSPlayerViewController.xib */,
+				DA2A200B22DDFAE7004B2860 /* HLSPlayerView.swift */,
+				DAEE3BC822E02CF000CC881E /* PlaybackControlView.swift */,
+				DAEE3BCA22E02D0100CC881E /* PlaybackControlView.xib */,
+			);
+			path = HLSPlayer;
+			sourceTree = "<group>";
+		};
+		DAEE3C0922E901F800CC881E /* HLSLooper */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE3BCE22E0DA9900CC881E /* HLSLooperViewController.swift */,
+				DAEE3BCF22E0DA9900CC881E /* HLSLooperViewController.xib */,
+			);
+			path = HLSLooper;
+			sourceTree = "<group>";
+		};
+		DAEE3C0A22E9021800CC881E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE3C0122E8FAB500CC881E /* Layouts.swift */,
+				DAEE3C0322E8FE9100CC881E /* UtilityExtensions.swift */,
+				DAEE3BC622E02C6F00CC881E /* SlideInViewLauncher.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DAEE3C0B22E9029300CC881E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DAEE3BFF22E8EC6700CC881E /* PerfMeasurements.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA2A1FF522DDFABD004B2860 /* HLSPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA2A200822DDFABF004B2860 /* Build configuration list for PBXNativeTarget "HLSPlayer" */;
+			buildPhases = (
+				DA2A1FF222DDFABD004B2860 /* Sources */,
+				DA2A1FF322DDFABD004B2860 /* Frameworks */,
+				DA2A1FF422DDFABD004B2860 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HLSPlayer;
+			productName = HLSPlayer;
+			productReference = DA2A1FF622DDFABD004B2860 /* HLSPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA2A1FEE22DDFABD004B2860 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = SwiftIndia;
+				TargetAttributes = {
+					DA2A1FF522DDFABD004B2860 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+				};
+			};
+			buildConfigurationList = DA2A1FF122DDFABD004B2860 /* Build configuration list for PBXProject "HLSPlayer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA2A1FED22DDFABD004B2860;
+			productRefGroup = DA2A1FF722DDFABD004B2860 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA2A1FF522DDFABD004B2860 /* HLSPlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA2A1FF422DDFABD004B2860 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEE3BDB22E102D800CC881E /* monkey-clip.mp4 in Resources */,
+				DA2A201022DDFB1F004B2860 /* HLSPlayerViewController.xib in Resources */,
+				DAEE3BD122E0DA9900CC881E /* HLSLooperViewController.xib in Resources */,
+				DA2A200422DDFABF004B2860 /* LaunchScreen.storyboard in Resources */,
+				DAEE3BD922E102D800CC881E /* newYorkFlip-clip.mp4 in Resources */,
+				DA2A200122DDFABF004B2860 /* Assets.xcassets in Resources */,
+				DAEE3BCB22E02D0100CC881E /* PlaybackControlView.xib in Resources */,
+				DAEE3BDC22E102D800CC881E /* shark-clip.mp4 in Resources */,
+				DAEE3BDA22E102D800CC881E /* bulletTrain-clip.mp4 in Resources */,
+				DA2A1FFF22DDFABD004B2860 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA2A1FF222DDFABD004B2860 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEE3BE022E1AF2200CC881E /* PlayListVideo.swift in Sources */,
+				DA2A200F22DDFB1F004B2860 /* HLSPlayerViewController.swift in Sources */,
+				DAEE3C0422E8FE9100CC881E /* UtilityExtensions.swift in Sources */,
+				DAEE3C0622E8FF4F00CC881E /* HLSQualityVarient.swift in Sources */,
+				DA2A1FFC22DDFABD004B2860 /* PlayListViewController.swift in Sources */,
+				DA2A200C22DDFAE7004B2860 /* HLSPlayerView.swift in Sources */,
+				DAEE3BDE22E1A5CA00CC881E /* PlaylistTableViewCell.swift in Sources */,
+				DAEE3C0022E8EC6800CC881E /* PerfMeasurements.swift in Sources */,
+				DAEE3C0222E8FAB500CC881E /* Layouts.swift in Sources */,
+				DAEE3BC722E02C6F00CC881E /* SlideInViewLauncher.swift in Sources */,
+				DA2A1FFA22DDFABD004B2860 /* AppDelegate.swift in Sources */,
+				DAEE3BD022E0DA9900CC881E /* HLSLooperViewController.swift in Sources */,
+				DAEE3BC922E02CF000CC881E /* PlaybackControlView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA2A1FFD22DDFABD004B2860 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2A1FFE22DDFABD004B2860 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA2A200222DDFABF004B2860 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2A200322DDFABF004B2860 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA2A200622DDFABF004B2860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA2A200722DDFABF004B2860 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA2A200922DDFABF004B2860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PHJKV9GK9D;
+				INFOPLIST_FILE = HLSPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swift.india.HLSPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA2A200A22DDFABF004B2860 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PHJKV9GK9D;
+				INFOPLIST_FILE = HLSPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swift.india.HLSPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA2A1FF122DDFABD004B2860 /* Build configuration list for PBXProject "HLSPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2A200622DDFABF004B2860 /* Debug */,
+				DA2A200722DDFABF004B2860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA2A200822DDFABF004B2860 /* Build configuration list for PBXNativeTarget "HLSPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2A200922DDFABF004B2860 /* Debug */,
+				DA2A200A22DDFABF004B2860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA2A1FEE22DDFABD004B2860 /* Project object */;
+}
